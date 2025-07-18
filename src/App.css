@@ -1,0 +1,27 @@
+.tab-container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.tabs {
+  display: flex;
+  color: black;
+  gap: 12px;
+  border-bottom: 1px solid black;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tab {
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
+  &.selected {
+    border-bottom: 1px solid black;
+  }
+
+  &:hover {
+    background-color: lightblue;
+  }
+}

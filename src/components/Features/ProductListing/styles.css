@@ -1,0 +1,33 @@
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-left: 150px;
+}
+
+.product-listing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-button {
+  cursor: pointer;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.selected {
+  width: 35px;
+  height: 35px;
+  font-size: 14px;
+  font-weight: bold;
+}

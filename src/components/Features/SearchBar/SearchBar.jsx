@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [showResults, setShowResults] = useState(true);
-  const [cache, setCache] = useState({});
+  const [showResults, setShowResults] = useState(false);
+  //   Alternate approach for caching.
+  //   const [cache, setCache] = useState({});
+  const cache = useRef({});
 
   const fetchData = async () => {
-    if (cache[searchQuery]) {
+    if (cache.current[searchQuery] === searchQuery) {
       setSearchResults(cache[searchQuery]);
       return;
     }
@@ -17,7 +19,7 @@ const SearchBar = () => {
     );
     const json = await data.json();
     setSearchResults(json?.products);
-    setCache((prev) => ({ ...prev, [searchQuery]: json.products }));
+    cache.current[searchQuery] = json?.products;
   };
   useEffect(() => {
     const timer = setTimeout(fetchData, 300);

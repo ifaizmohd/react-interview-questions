@@ -2,6 +2,7 @@
  * This class is the implementation of Linked list data structure class.
  */
 
+import { LinkedListNode } from "./LinkedListNode";
 import { Node } from "./Node";
 
 export class LinkedList {
@@ -12,7 +13,7 @@ export class LinkedList {
   }
 
   insert(data) {
-    const node = new Node(data);
+    const node = new LinkedListNode(data);
     if (this.head === null) {
       this.head = node;
       this.tail = node;

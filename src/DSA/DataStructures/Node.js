@@ -7,9 +7,8 @@
  */
 
 export class Node {
-  constructor(value, next) {
+  constructor(value) {
     this.value = value;
-    this.next = next;
   }
 
   getValue() {
@@ -18,13 +17,5 @@ export class Node {
 
   setValue(value) {
     this.value = value;
-  }
-
-  getNext() {
-    return this.next;
-  }
-
-  setNext(next) {
-    this.next = next;
   }
 }

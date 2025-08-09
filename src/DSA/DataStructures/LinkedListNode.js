@@ -1,6 +1,6 @@
 export class LinkedListNode extends Node {
-  constructor() {
-    super();
+  constructor(value) {
+    super(value);
     this.next = null;
   }
 

@@ -8,6 +8,7 @@ const SearchBar = () => {
   //   Alternate approach for caching.
   //   const [cache, setCache] = useState({});
   const cache = useRef({});
+  const allData = useRef({});
 
   const fetchData = async () => {
     if (cache.current[searchQuery] === searchQuery) {
@@ -20,6 +21,14 @@ const SearchBar = () => {
     const json = await data.json();
     setSearchResults(json?.products);
     cache.current[searchQuery] = json?.products;
+  };
+
+  const fetchAllData = async () => {
+    if (allData.current) {
+      return allData.current;
+    }
+    const data = await fetch("https://dummyjson.com/products/search?q=");
+    const json = await data.json();
   };
   useEffect(() => {
     const timer = setTimeout(fetchData, 300);
